@@ -28,8 +28,8 @@ def create_commendation(schoolkid, subject):
         group_letter=schoolkid.group_letter,
         subject=subject
     ).exclude(date__in=used_dates).order_by('-date')[0]
-    commendations_count = Commendation.objects.count()
-    text_commendation = Commendation.objects.all()[randint(0, commendations_count - 1)].text
+    commendations_quantity = Commendation.objects.count()
+    text_commendation = Commendation.objects.all()[randint(0, commendations_quantity - 1)].text
     Commendation.objects.create(
         text=text_commendation,
         created=lessons.date,
