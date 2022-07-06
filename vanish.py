@@ -29,9 +29,9 @@ def create_commendation(schoolkid, subject):
         subject=subject
     ).exclude(date__in=used_dates).order_by('-date')[0]
     commendations_quantity = Commendation.objects.count()
-    text_commendation = Commendation.objects.all()[randint(0, commendations_quantity - 1)].text
+    commendation_text = Commendation.objects.all()[randint(0, commendations_quantity - 1)].text
     Commendation.objects.create(
-        text=text_commendation,
+        text=commendation_text,
         created=lessons.date,
         schoolkid=schoolkid,
         subject=lessons.subject,
